@@ -200,7 +200,7 @@ abstract class JFormField
 		// Detect the field type if not set
 		if (!isset($this->type))
 		{
-			$parts = JString::splitCamelCase(get_class($this));
+			$parts = JString::splitCamelCase(get_called_class());
 			if ($parts[0] == 'J')
 			{
 				$this->type = JString::ucfirst($parts[count($parts) - 1], '_');
@@ -273,7 +273,7 @@ abstract class JFormField
 	 *
 	 * @param   JForm  $form  The JForm object to attach to the form field.
 	 *
-	 * @return  object  The form field object so that the method can be used in a chain.
+	 * @return  JFormField  The form field object so that the method can be used in a chain.
 	 *
 	 * @since   11.1
 	 */
@@ -288,17 +288,17 @@ abstract class JFormField
 	/**
 	 * Method to attach a JForm object to the field.
 	 *
-	 * @param   object  &$element  The JXmlElement object representing the <field /> tag for the form field object.
-	 * @param   mixed   $value     The form field value to validate.
-	 * @param   string  $group     The field name group control value. This acts as as an array container for the field.
-	 *                             For example if the field has name="foo" and the group value is set to "bar" then the
-	 *                             full field name would end up being "bar[foo]".
+	 * @param   JXmlElement  $element  The JXmlElement object representing the <field /> tag for the form field object.
+	 * @param   mixed        $value    The form field value to validate.
+	 * @param   string       $group    The field name group control value. This acts as as an array container for the field.
+	 *                                 For example if the field has name="foo" and the group value is set to "bar" then the
+	 *                                 full field name would end up being "bar[foo]".
 	 *
 	 * @return  boolean  True on success.
 	 *
 	 * @since   11.1
 	 */
-	public function setup(&$element, $value, $group = null)
+	public function setup($element, $value, $group = null)
 	{
 		// Make sure there is a valid JFormField XML element.
 		if (!($element instanceof JXMLElement) || (string) $element->getName() != 'field')

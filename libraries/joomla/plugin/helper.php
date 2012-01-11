@@ -103,7 +103,7 @@ abstract class JPluginHelper
 	{
 		static $loaded = array();
 
-		// check for the default args, if so we can optimise cheaply
+		// Check for the default args, if so we can optimise cheaply
 		$defaults = false;
 		if (is_null($plugin) && $autocreate == true && is_null($dispatcher))
 		{
@@ -141,7 +141,7 @@ abstract class JPluginHelper
 	/**
 	 * Loads the plugin file.
 	 *
-	 * @param   JPlugin      &$plugin     The plugin.
+	 * @param   JPlugin      $plugin      The plugin.
 	 * @param   boolean      $autocreate  True to autocreate.
 	 * @param   JDispatcher  $dispatcher  Optionally allows the plugin to use a different dispatcher.
 	 *
@@ -149,7 +149,7 @@ abstract class JPluginHelper
 	 *
 	 * @since   11.1
 	 */
-	protected static function _import(&$plugin, $autocreate = true, $dispatcher = null)
+	protected static function _import($plugin, $autocreate = true, $dispatcher = null)
 	{
 		static $paths = array();
 
@@ -238,7 +238,7 @@ abstract class JPluginHelper
 
 			if ($error = $db->getErrorMsg())
 			{
-				JError::raiseWarning(500, $error);
+				JLog::add($error, JLog::WARNING, 'jerror');
 				return false;
 			}
 
