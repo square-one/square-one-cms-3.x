@@ -75,7 +75,7 @@ class JInstallationModelDatabase extends JModel
 			{
 				$db = JInstallationHelperDatabase::getDbo($options->db_type, $options->db_host, $options->db_user, $options->db_pass, null, $options->db_prefix, false);
 			}
-			catch (JDatabaseException $e)
+			catch (RuntimeException $e)
 			{
 				$this->setError(JText::sprintf('INSTL_DATABASE_COULD_NOT_CONNECT', $e->getMessage()));
 				return false;
@@ -114,7 +114,7 @@ class JInstallationModelDatabase extends JModel
 			{
 				$db->select($options->db_name);
 			}
-			catch (JDatabaseException $e)
+			catch (RuntimeException $e)
 			{
 				// If the database could not be selected, attempt to create it and then select it.
 				if ($this->createDatabase($db, $options->db_name)) {
@@ -184,7 +184,7 @@ class JInstallationModelDatabase extends JModel
 			{
 				$db->query();
 			}
-			catch (JDatabaseException $e)
+			catch (RuntimeException $e)
 			{
 				$this->setError($e->getMessage());
 				return false;
@@ -200,7 +200,7 @@ class JInstallationModelDatabase extends JModel
 			{
 				$extensions = $db->loadObjectList();
 			}
-			catch (JDatabaseException $e)
+			catch (RuntimeException $e)
 			{
 				$this->setError($e->getMessage());
 				$return = false;
@@ -254,7 +254,7 @@ class JInstallationModelDatabase extends JModel
 				{
 					$db->query();
 				}
-				catch (JDatabaseException $e)
+				catch (RuntimeException $e)
 				{
 					$this->setError($e->getMessage());
 					$return = false;
@@ -275,7 +275,7 @@ class JInstallationModelDatabase extends JModel
 		{
 			$db = JInstallationHelperDatabase::getDBO($options->db_type, $options->db_host, $options->db_user, $options->db_pass, $options->db_name, $options->db_prefix);
 		}
-		catch (JDatabaseException $e)
+		catch (RuntimeException $e)
 		{
 			$this->setError(JText::sprintf('INSTL_DATABASE_COULD_NOT_CONNECT', $e->getMessage()));
 			return false;
@@ -333,7 +333,7 @@ class JInstallationModelDatabase extends JModel
 					{
 						$db->dropTable($backupTable, true);
 					}
-					catch (JDatabaseException $e)
+					catch (RuntimeException $e)
 					{
 						$this->setError($e->getMessage());
 						$return = false;
@@ -344,7 +344,7 @@ class JInstallationModelDatabase extends JModel
 					{
 						$db->renameTable($table, $backupTable, $backup, $prefix);
 					}
-					catch (JDatabaseException $e)
+					catch (RuntimeException $e)
 					{
 						$this->setError($e->getMessage());
 						$return = false;
@@ -377,7 +377,7 @@ class JInstallationModelDatabase extends JModel
 		{
 			$db->query();
 		}
-		catch (JDatabaseException $e)
+		catch (RuntimeException $e)
 		{
 			// If an error occurred return false.
 			return false;
@@ -414,7 +414,7 @@ class JInstallationModelDatabase extends JModel
 					{
 						$db->dropTable($table);
 					}
-					catch (JDatabaseException $e)
+					catch (RuntimeException $e)
 					{
 						$this->setError($e->getMessage());
 						$return = false;
@@ -462,7 +462,7 @@ class JInstallationModelDatabase extends JModel
 				{
 					$db->query();
 				}
-				catch (JDatabaseException $e)
+				catch (RuntimeException $e)
 				{
 					$this->setError($e->getMessage());
 					$return = false;
@@ -494,7 +494,7 @@ class JInstallationModelDatabase extends JModel
 		{
 			$db->query();
 		}
-		catch (JDatabaseException $e)
+		catch (RuntimeException $e)
 		{
 			return false;
 		}
