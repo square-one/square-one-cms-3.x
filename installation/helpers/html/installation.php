@@ -40,14 +40,15 @@ class JHtmlInstallation
 				$on = 1;
 		}
 
- 		$html = '<h2>'.JText::_('INSTL_STEPS_TITLE').'</h2>' .
-			'<div class="step'.($on == 1 ? ' active' : '').'" id="language">'.JText::_('INSTL_STEP_1_LABEL').'</div>' .
-			'<div class="step'.($on == 2 ? ' active' : '').'" id="preinstall">'.JText::_('INSTL_STEP_2_LABEL').'</div>' .
-			'<div class="step'.($on == 3 ? ' active' : '').'" id="license">'.JText::_('INSTL_STEP_3_LABEL').'</div>' .
-			'<div class="step'.($on == 4 ? ' active' : '').'" id="database">'.JText::_('INSTL_STEP_4_LABEL').'</div>' .
-			'<div class="step'.($on == 5 ? ' active' : '').'" id="filesystem">'.JText::_('INSTL_STEP_5_LABEL').'</div>' .
-			'<div class="step'.($on == 6 ? ' active' : '').'" id="site">'.JText::_('INSTL_STEP_6_LABEL').'</div>' .
-			'<div class="step'.($on == 7 ? ' active' : '').'" id="complete">'.JText::_('INSTL_STEP_7_LABEL').'</div>';
+ 		$html = '<ul class="nav nav-tabs">' .
+			'<li class="step'.($on == 1 ? ' active' : '').'" id="language"><a href="#">'.JText::_('INSTL_STEP_1_LABEL').'</a></li>' .
+			'<li class="step'.($on == 2 ? ' active' : '').'" id="preinstall"><a href="#">'.JText::_('INSTL_STEP_2_LABEL').'</a></li>' .
+			'<li class="step'.($on == 3 ? ' active' : '').'" id="license"><a href="#">'.JText::_('INSTL_STEP_3_LABEL').'</a></li>' .
+			'<li class="step'.($on == 4 ? ' active' : '').'" id="database"><a href="#">'.JText::_('INSTL_STEP_4_LABEL').'</a></li>' .
+			'<li class="step'.($on == 5 ? ' active' : '').'" id="filesystem"><a href="#">'.JText::_('INSTL_STEP_5_LABEL').'</a></li>' .
+			'<li class="step'.($on == 6 ? ' active' : '').'" id="site"><a href="#">'.JText::_('INSTL_STEP_6_LABEL').'</a></li>' .
+			'<li class="step'.($on == 7 ? ' active' : '').'" id="complete"><a href="#">'.JText::_('INSTL_STEP_7_LABEL').'</a></li>'.
+			'</ul>';
 			return $html;
 	}
 }
