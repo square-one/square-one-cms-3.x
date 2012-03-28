@@ -13,9 +13,9 @@ $doc = JFactory::getDocument();
 JHtml::addIncludePath(JPATH_COMPONENT.'/helpers/html');
 
 // Add Stylesheets
-$doc->addStyleSheet('../media/system/css/bootstrap.css');
-$doc->addStyleSheet('../media/system/css/bootstrap-extended.css');
-$doc->addStyleSheet('../media/system/css/bootstrap-responsive.css');
+$doc->addStyleSheet('../templates/system/css/bootstrap.css');
+$doc->addStyleSheet('../templates/system/css/bootstrap-extended.css');
+$doc->addStyleSheet('../templates/system/css/bootstrap-responsive.css');
 $doc->addStyleSheet('template/css/template.css');
 
 if ($this->direction == 'rtl') {
@@ -23,8 +23,8 @@ if ($this->direction == 'rtl') {
 }
 
 // Add JavaScript
-$doc->addScript('../media/system/js/jquery.js');
-$doc->addScript('../media/system/js/bootstrap.js');
+//$doc->addScript('../templates/system/js/jquery.js');
+//$doc->addScript('../templates/system/js/bootstrap.js');
 
 // Load the JavaScript behaviors
 JHtml::_('behavior.framework', true);
