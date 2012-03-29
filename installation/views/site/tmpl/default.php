@@ -8,89 +8,118 @@
 defined('_JEXEC') or die;
 ?>
 <div id="installer">
+	<fieldset>
 	<form action="index.php" method="post" id="adminForm" class="form-validate form-horizontal">
-		<fieldset>
 			<legend><?php echo JText::_('INSTL_SITE'); ?></legend>
 			<div class="control-group">
 				<label for="" class="control-label">
-					<?php echo $this->form->getLabel('site_name'); ?>
+					<?php echo JText::_('INSTL_BASIC_SETTINGS'); ?>
 				</label>
 				<div class="controls">
-					<?php echo $this->form->getInput('site_name'); ?> <i class="hasTip icon-info-sign" title="<?php echo JText::_('INSTL_SITE_NAME_DESC'); ?>"></i>
+					<table class="table table-striped table-condensed">
+						<tbody>
+							<tr>
+								<td class="span2 item">
+									<?php echo $this->form->getLabel('site_name'); ?>
+								</td>
+								<td>
+									<?php echo $this->form->getInput('site_name'); ?>
+								</td>
+							</tr>
+							<tr>
+								<td class="item">
+									<?php echo $this->form->getLabel('admin_email'); ?>
+								</td>
+								<td>
+									<?php echo $this->form->getInput('admin_email'); ?>
+								</td>
+							</tr>
+							<tr>
+								<td class="item">
+									<?php echo $this->form->getLabel('admin_user'); ?>
+								</td>
+								<td>
+									<?php echo $this->form->getInput('admin_user'); ?>
+								</td>
+							</tr>
+							<tr>
+								<td class="item">
+									<?php echo $this->form->getLabel('admin_password'); ?>
+								</td>
+								<td>
+									<?php echo $this->form->getInput('admin_password'); ?>
+								</td>
+							</tr>
+							<tr>
+								<td class="item">
+									<?php echo $this->form->getLabel('admin_password2'); ?>
+								</td>
+								<td>
+									<?php echo $this->form->getInput('admin_password2'); ?>
+								</td>
+							</tr>
+						</tbody>
+						<tfoot>
+							<tr>
+								<td colspan="2"></td>
+							</tr>
+						</tfoot>
+					</table>
 				</div>
 			</div>
 			<div class="control-group">
 				<label for="" class="control-label">
-					<?php echo $this->form->getLabel('admin_email'); ?>
+					<?php echo JText::_('INSTL_SITE_META_ADVANCED_SETTINGS'); ?>
 				</label>
 				<div class="controls">
-					<?php echo $this->form->getInput('admin_email'); ?>  <i class="hasTip icon-info-sign" title="<?php echo JText::_('INSTL_SITE_CONF_DESC'); ?>"></i>
+					<table class="table table-striped table-condensed">
+						<tbody>
+							<tr>
+								<td class="span2" title="<?php echo JText::_('INSTL_SITE_METADESC_TITLE_LABEL'); ?>">
+									<?php echo $this->form->getLabel('site_metadesc'); ?>
+								</td>
+								<td>
+									<?php echo $this->form->getInput('site_metadesc'); ?>
+								</td>
+							</tr>
+							<tr>
+								<td title="<?php echo JText::_('INSTL_SITE_METAKEYS_TITLE_LABEL'); ?>">
+									<?php echo $this->form->getLabel('site_metakeys'); ?>
+								</td>
+								<td>
+									<?php echo $this->form->getInput('site_metakeys'); ?>
+								</td>
+							</tr>
+							<tr>
+								<td title="<?php echo JText::_('INSTL_SITE_OFFLINE_TITLE_LABEL'); ?>">
+									<?php echo $this->form->getLabel('site_offline'); ?>
+								</td>
+								<td>
+									<?php echo $this->form->getInput('site_offline'); ?>
+								</td>
+							</tr>
+						</tbody>
+						<tfoot>
+							<tr>
+								<td colspan="2"></td>
+							</tr>
+						</tfoot>
+					</table>
 				</div>
 			</div>
-			<div class="control-group">
-				<label for="" class="control-label">
-					<?php echo $this->form->getLabel('admin_user'); ?>
-				</label>
-				<div class="controls">
-					<?php echo $this->form->getInput('admin_user'); ?>
-				</div>
-			</div>
-			<div class="control-group">
-				<label for="" class="control-label">
-					<?php echo $this->form->getLabel('admin_password'); ?>
-				</label>
-				<div class="controls">
-					<?php echo $this->form->getInput('admin_password'); ?>
-				</div>
-			</div>
-			<div class="control-group">
-				<label for="" class="control-label">
-					<?php echo $this->form->getLabel('admin_password2'); ?>
-				</label>
-				<div class="controls">
-					<?php echo $this->form->getInput('admin_password2'); ?>
-				</div>
-			</div>
-			<div class="control-group">
-				<label for="" class="control-label">
-					<?php echo $this->form->getLabel('site_metadesc'); ?>
-				</label>
-				<div class="controls">
-					<?php echo $this->form->getInput('site_metadesc'); ?>
-				</div>
-			</div>
-			<div class="control-group">
-				<label for="" class="control-label">
-					<?php echo $this->form->getLabel('site_metakeys'); ?>
-				</label>
-				<div class="controls">
-					<?php echo $this->form->getInput('site_metakeys'); ?>
-				</div>
-			</div>
-			
-			<div class="control-group">
-				<label for="" class="control-label">
-					<?php echo $this->form->getLabel('site_offline'); ?>
-				</label>
-				<div class="controls">
-					<?php echo $this->form->getInput('site_offline'); ?>
-				</div>
-			</div>
-		</fieldset>
 		<input type="hidden" name="task" value="setup.saveconfig" />
 		<?php echo JHtml::_('form.token'); ?>
 		<?php echo $this->form->getInput('sample_installed'); ?>
 		</form>
 
 		<form enctype="multipart/form-data" action="index.php" method="post" class="form-horizontal" id="filename">
-			<legend><?php echo JText::_('INSTL_SITE_LOAD_SAMPLE_TITLE'); ?></legend>
 			<div class="control-group">
 				<label for="" class="control-label">
 					<?php echo $this->form->getLabel('sample_file'); ?>
 				</label>
 				<div class="controls">
 					<?php echo $this->form->getInput('sample_file'); ?> <span id="theDefault">
-						<button class="btn btn-inverse" name="instDefault" onclick="Install.sampleData(this, <?php echo $this->form->getField('sample_file')->id;?>);"><i class="icon-upload icon-white"></i> <?php echo JText::_('INSTL_SITE_INSTALL_SAMPLE_LABEL'); ?></button>
+						<button class="btn btn-info" name="instDefault" onclick="Install.sampleData(this, <?php echo $this->form->getField('sample_file')->id;?>);"><i class="icon-upload icon-white"></i> <?php echo JText::_('INSTL_SITE_INSTALL_SAMPLE_LABEL'); ?></button>
 					</span>
 					 <i class="icon-info-sign" title="<?php echo JText::_('INSTL_SITE_INSTALL_SAMPLE_DESC'); ?>"></i>
 					 <div class="message inlineError" id="theDefaultError" style="display: none">
@@ -106,11 +135,9 @@ defined('_JEXEC') or die;
 					
 				</label>
 				<div class="controls small">
-					<p><?php echo JText::_('INSTL_SITE_LOAD_SAMPLE_DESC1'); ?></p>
-					<p><?php echo JText::_('INSTL_SITE_LOAD_SAMPLE_DESC2'); ?></p>
-					<p><?php echo JText::_('INSTL_SITE_LOAD_SAMPLE_DESC3'); ?></p>
-					<p><?php echo JText::_('INSTL_SITE_LOAD_SAMPLE_DESC4'); ?></p>
-					<p><?php echo JText::_('INSTL_SITE_LOAD_SAMPLE_DESC8'); ?></p>
+					<div class="alert alert-info">
+						<?php echo JText::_('INSTL_SITE_LOAD_SAMPLE_DESC1'); ?>
+					</div>
 				</div>
 			</div>
 			<div class="form-actions">
@@ -125,4 +152,5 @@ defined('_JEXEC') or die;
 			<?php echo $this->form->getInput('type'); ?>
 			<?php echo JHtml::_('form.token'); ?>
 		</form>
+	</fieldset>
 </div>
