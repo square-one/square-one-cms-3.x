@@ -12,21 +12,14 @@ defined('_JEXEC') or die;
 		<fieldset>
 			<legend><?php echo JText::_('INSTL_DATABASE'); ?></legend>
 			<div class="control-group">
-				<label for="" class="control-label">
-					<?php echo JText::_('INSTL_DATABASE_TITLE'); ?>
-				</label>
-				<div class="controls">
-						<?php echo JText::_('INSTL_DATABASE_DESC'); ?>
-				</div>
-			</div>
-			<div class="control-group">
 					<label for="" class="control-label">
 						<?php echo JText::_('INSTL_BASIC_SETTINGS'); ?>
 					</label>
 					<div class="controls">
 						<table class="table table-striped table-condensed">
+							<tbody>
 							<tr>
-								<td colspan="2">
+								<td>
 									<?php echo $this->form->getLabel('db_type'); ?>
 									<br />
 									<?php echo $this->form->getInput('db_type'); ?>
@@ -38,7 +31,7 @@ defined('_JEXEC') or die;
 								</td>
 							</tr>
 							<tr>
-								<td colspan="2">
+								<td>
 									<?php echo $this->form->getLabel('db_host'); ?>
 									<br />
 									<?php echo $this->form->getInput('db_host'); ?>
@@ -50,7 +43,7 @@ defined('_JEXEC') or die;
 								</td>
 							</tr>
 							<tr>
-								<td colspan="2">
+								<td>
 									<?php echo $this->form->getLabel('db_user'); ?>
 									<br />
 									<?php echo $this->form->getInput('db_user'); ?>
@@ -62,7 +55,7 @@ defined('_JEXEC') or die;
 								</td>
 							</tr>
 							<tr>
-								<td colspan="2">
+								<td>
 									<?php echo $this->form->getLabel('db_pass'); ?>
 									<br />
 									<?php echo $this->form->getInput('db_pass'); ?>
@@ -74,7 +67,7 @@ defined('_JEXEC') or die;
 								</td>
 							</tr>
 							<tr>
-								<td colspan="2">
+								<td>
 									<?php echo $this->form->getLabel('db_name'); ?>
 									<br />
 									<?php echo $this->form->getInput('db_name'); ?>
@@ -86,7 +79,7 @@ defined('_JEXEC') or die;
 								</td>
 							</tr>
 							<tr>
-								<td colspan="2">
+								<td>
 									<?php echo $this->form->getLabel('db_prefix'); ?>
 									<br />
 									<?php echo $this->form->getInput('db_prefix'); ?>
@@ -98,7 +91,7 @@ defined('_JEXEC') or die;
 								</td>
 							</tr>
 							<tr>
-								<td colspan="2">
+								<td>
 									<?php echo $this->form->getLabel('db_old'); ?>
 									<br />
 									<?php echo $this->form->getInput('db_old'); ?>
@@ -109,6 +102,12 @@ defined('_JEXEC') or die;
 									</em>
 								</td>
 							</tr>
+							</tbody>
+							<tfoot>
+								<tr>
+									<td colspan="2"></td>
+								</tr>
+							</tfoot>
 						</table>
 					</div>
 				</div>
