@@ -13,7 +13,7 @@ defined('_JEXEC') or die;
 			<legend><?php echo JText::_('INSTL_COMPLETE_TITLE'); ?></legend>
 			<div class="control-group">
 				<label for="" class="control-label">
-				
+					<?php echo JText::_('INSTL_COMPLETE_REMOVE_FOLDER'); ?>
 				</label>
 				<div class="controls">
 					<div class="alert alert-info">
@@ -24,7 +24,7 @@ defined('_JEXEC') or die;
 					<div class="alert alert-error inlineError" id="theDefaultError" style="display: none">
 							<h4 class="alert-heading"><?php echo JText::_('JERROR'); ?></h4>
 							<p id="theDefaultErrorMessage"></p>
-					<div>
+					</div>
 				</div>
 			</div>
 			<div class="control-group">
