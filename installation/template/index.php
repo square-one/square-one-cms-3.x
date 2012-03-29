@@ -23,8 +23,8 @@ if ($this->direction == 'rtl') {
 }
 
 // Add JavaScript
-//$doc->addScript('../templates/system/js/jquery.js');
-//$doc->addScript('../templates/system/js/bootstrap.js');
+$doc->addScript('../templates/system/js/jquery.js');
+$doc->addScript('../templates/system/js/bootstrap.js');
 
 // Load the JavaScript behaviors
 JHtml::_('behavior.framework', true);
@@ -43,7 +43,7 @@ JHtml::_('script', 'installation/template/js/installation.js', true, false, fals
 		<![endif]-->
 		<script type="text/javascript">
 			window.addEvent('domready', function() {
-				window.Install = new Installation('rightpad', '<?php echo JURI::current(); ?>');
+				window.Install = new Installation('installation', '<?php echo JURI::current(); ?>');
 
 				Locale.define('<?php echo JFactory::getLanguage()->getTag(); ?>', 'installation', {
 					sampleDataLoaded: '<?php echo JText::_('INSTL_SITE_SAMPLE_LOADED', true); ?>'
@@ -66,7 +66,16 @@ JHtml::_('script', 'installation/template/js/installation.js', true, false, fals
 		<!-- Container -->
 		<div class="container">
 			<?php echo JHtml::_('installation.stepbar'); ?>
-			<jdoc:include type="installation" />
+			<div id="warning">
+				<noscript>
+					<div id="javascript-warning">
+						<?php echo JText::_('INSTL_WARNJAVASCRIPT'); ?>
+					</div>
+				</noscript>
+			</div>
+			<div id="installation">
+				<jdoc:include type="installation" />
+			</div>
 			<hr />
 			<div class="footer">
 				<p class="pull-right"><a href="#top" id="back-top">Back to top</a></p>
