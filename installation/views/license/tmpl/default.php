@@ -16,7 +16,7 @@ defined('_JEXEC') or die;
 					<?php echo JText::_('INSTL_LICENSE'); ?>
 				</label>
 				<div class="controls">
-					<iframe src="gpl.html" class="thumbnail span9 license" marginwidth="25" scrolling="auto"></iframe>
+					<iframe src="gpl.html" class="thumbnail span9 license" height="300" marginwidth="25" scrolling="auto"></iframe>
 				</div>
 			</div>
 			<div class="form-actions">
