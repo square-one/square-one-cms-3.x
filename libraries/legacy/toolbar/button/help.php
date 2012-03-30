@@ -39,12 +39,12 @@ class JToolbarButtonHelp extends JButton
 	public function fetchButton($type = 'Help', $ref = '', $com = false, $override = null, $component = null)
 	{
 		$text = JText::_('JTOOLBAR_HELP');
-		$class = $this->fetchIconClass('help');
+		$class = 'question-sign';
 		$doTask = $this->_getCommand($ref, $com, $override, $component);
 
-		$html = "<a href=\"#\" onclick=\"$doTask\" rel=\"help\" class=\"toolbar\">\n";
-		$html .= "<span class=\"$class\">\n";
-		$html .= "</span>\n";
+		$html = "<a href=\"#\" onclick=\"$doTask\" rel=\"help\" class=\"btn\">\n";
+		$html .= "<i class=\"icon-$class\">\n";
+		$html .= "</i>\n";
 		$html .= "$text\n";
 		$html .= "</a>\n";
 

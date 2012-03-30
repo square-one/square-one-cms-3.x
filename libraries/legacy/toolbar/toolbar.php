@@ -158,8 +158,7 @@ class JToolbar
 		$html = array();
 
 		// Start toolbar div.
-		$html[] = '<div class="toolbar-list" id="' . $this->_name . '">';
-		$html[] = '<ul>';
+		$html[] = '<div class="btn-toolbar" id="' . $this->_name . '">';
 
 		// Render each button in the toolbar.
 		foreach ($this->_bar as $button)
@@ -168,8 +167,7 @@ class JToolbar
 		}
 
 		// End toolbar div.
-		$html[] = '</ul>';
-		$html[] = '<div class="clr"></div>';
+		$html[] = '<div class="clear"></div>';
 		$html[] = '</div>';
 
 		return implode("\n", $html);
