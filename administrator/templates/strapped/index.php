@@ -39,7 +39,9 @@ $doc->addStyleSheet('templates/'.$this->template.'/css/template.css');
     $document =& JFactory::getDocument();
     
     // Adjusting content width
-    if ((!JRequest::getInt('hidemainmenu')) && $this->countModules('right')) :
+    if ($option == "com_cpanel") :
+    	$span = "span8";
+    elseif ((!JRequest::getInt('hidemainmenu')) && $this->countModules('right')) :
     	$span = "span6";
     elseif ((!JRequest::getInt('hidemainmenu')) && !$this->countModules('right')) :
     	$span = "span10";
@@ -123,7 +125,7 @@ $doc->addStyleSheet('templates/'.$this->template.'/css/template.css');
 					<div class="page-title"><h1><?php echo JHtml::_('string.truncate', $app->get('JComponentTitle'), 10, true, false);?></h1></div>
 				</div>
 				<div class="span10">
-					<jdoc:include type="modules" name="toolbar" style="xhtml" />
+					<jdoc:include type="modules" name="toolbar" style="no" />
 				</div>
 			</div>
 		</div>
@@ -131,7 +133,7 @@ $doc->addStyleSheet('templates/'.$this->template.'/css/template.css');
 	<!-- Container -->
 	<div class="container">
 		<div class="row">
-			<?php if (!JRequest::getInt('hidemainmenu')): ?>
+			<?php if (!JRequest::getInt('hidemainmenu') && $option != "com_cpanel"): ?>
 			<!-- Begin Sidebar -->
 			<div id="sidebar" class="span2">
 				<div class="sidebar-nav">
@@ -148,9 +150,14 @@ $doc->addStyleSheet('templates/'.$this->template.'/css/template.css');
 				<jdoc:include type="modules" name="bottom" style="xhtml" />
 				<!-- End Content -->
 			</div>
-			<?php if ($this->countModules('right')) : ?>
+			<?php if (($this->countModules('right')) || ($option == "com_cpanel")) : ?>
 			<div id="aside" class="span4">
 				<!-- Begin Right Sidebar -->
+				<?php
+				/* Load cpanel modules */
+				if ($option == "com_cpanel"):?>
+					<jdoc:include type="modules" name="icon" style="well" />
+				<?php endif;?>
 				<jdoc:include type="modules" name="right" style="xhtml" />
 				<!-- End Right Sidebar -->
 			</div>
