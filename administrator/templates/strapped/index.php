@@ -1,16 +1,23 @@
 <?php
-	/*** @copyright Copyright Pixel Praise LLC © 2012. All rights reserved. */
-	// no direct access
-	defined('_JEXEC') or die;
-	
-	$app = JFactory::getApplication();
-	$doc = JFactory::getDocument();
-	
-	// Add Stylesheets
-	$doc->addStyleSheet('../templates/system/css/bootstrap.css');
-	$doc->addStyleSheet('../templates/system/css/bootstrap-extended.css');
-	$doc->addStyleSheet('../templates/system/css/bootstrap-responsive.css');
-	$doc->addStyleSheet('templates/'.$this->template.'/css/template.css');
+/**
+ * @package		Joomla.Administrator
+ * @subpackage	Templates.strapped
+ * @copyright	Copyright (C) 2005 - 2012 Open Source Matters, Inc. All rights reserved.
+ * @license		GNU General Public License version 2 or later; see LICENSE.txt
+ * @since		3.0
+ */
+ 
+// no direct access
+defined('_JEXEC') or die;
+
+$app = JFactory::getApplication();
+$doc = JFactory::getDocument();
+
+// Add Stylesheets
+$doc->addStyleSheet('../templates/system/css/bootstrap.css');
+$doc->addStyleSheet('../templates/system/css/bootstrap-extended.css');
+$doc->addStyleSheet('../templates/system/css/bootstrap-responsive.css');
+$doc->addStyleSheet('templates/'.$this->template.'/css/template.css');
 ?>
 <!DOCTYPE html>
 <html>
