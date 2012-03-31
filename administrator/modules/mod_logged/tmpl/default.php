@@ -9,7 +9,7 @@
 // No direct access.
 defined('_JEXEC') or die;
 ?>
-<table class="adminlist">
+<table class="table table-striped">
 	<thead>
 		<tr>
 			<th>
@@ -69,4 +69,9 @@ defined('_JEXEC') or die;
 		</tr>
 		<?php endforeach; ?>
 	</tbody>
+	<tfoot>
+		<tr>
+			<td colspan="5"></td>
+		</tr>
+	</tfoot>
 </table>
