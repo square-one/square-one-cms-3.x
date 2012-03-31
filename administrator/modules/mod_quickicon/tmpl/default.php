@@ -11,5 +11,14 @@ defined('_JEXEC') or die;
 $html = JHtml::_('icons.buttons', $buttons);
 ?>
 <?php if (!empty($html)): ?>
-	<div class="cpanel"><?php echo $html;?></div>
+	<table class="table table-striped">
+		<tbody>
+			<?php echo $html;?>
+		</tbody>
+		<tfoot>
+			<tr>
+				<td></td>
+			</tr>
+		</tfoot>
+	</table>
 <?php endif;?>
