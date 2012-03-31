@@ -33,4 +33,14 @@ function modChrome_no($module, &$params, &$attribs)
 		echo $module->content;
 	}
 }
+
+function modChrome_well($module, &$params, &$attribs)
+{
+	if ($module->content) {
+		echo "<div class=\"well\">";
+		echo "<div class=\"page-header\"><h4>".$module->title."</h4></div>";
+		echo $module->content;
+		echo "</div>";
+	}
+}
 ?>
