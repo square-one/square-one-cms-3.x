@@ -99,7 +99,7 @@ abstract class JToolbarButton
 	 */
 	public function fetchIconClass($identifier)
 	{
-		return "icon-32-$identifier";
+		return "icon-$identifier";
 	}
 
 	/**
