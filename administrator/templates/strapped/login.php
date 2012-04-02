@@ -16,7 +16,6 @@ $doc = JFactory::getDocument();
 // Add Stylesheets
 $doc->addStyleSheet('../templates/system/css/bootstrap.css');
 $doc->addStyleSheet('../templates/system/css/bootstrap-extended.css');
-$doc->addStyleSheet('../templates/system/css/bootstrap-responsive.css');
 $doc->addStyleSheet('templates/'.$this->template.'/css/template.css');
 ?>
 <!DOCTYPE html>
@@ -67,10 +66,12 @@ $doc->addStyleSheet('templates/'.$this->template.'/css/template.css');
 	<!-- Container -->
 	<div class="container">
 		<div class="row">
-			<div class="span3">&nbsp;</div>
-			<div id="content" class="span6">
+			<div class="span4">&nbsp;</div>
+			<div id="content" class="span4">
 				<!-- Begin Content -->
 				<div id="element-box" class="login well">
+					<img src="<?php echo $this->baseurl; ?>/templates/<?php echo $this->template ?>/images/joomla.png" alt="Joomla!" />
+					<hr />
 					<jdoc:include type="message" />
 					<jdoc:include type="component" />
 				</div>
@@ -78,14 +79,14 @@ $doc->addStyleSheet('templates/'.$this->template.'/css/template.css');
 					<?php echo JText::_('JGLOBAL_WARNJAVASCRIPT') ?>
 				</noscript>
 				<!-- End Content -->
-				<p><?php echo JText::_('COM_LOGIN_VALID') ?></p>
+				<p class="small"><?php echo JText::_('COM_LOGIN_VALID') ?></p>
 				<p><a href="<?php echo JURI::root(); ?>" class="btn btn-mini"><i class="icon-share"></i> <?php echo JText::_('COM_LOGIN_RETURN_TO_SITE_HOME_PAGE') ?></a></p>
 				<hr />
 				<div class="footer">
-					<p>&copy; <?php echo $sitename; ?> <?php echo date('Y');?></p>
+					<p class="small">&copy; <?php echo $sitename; ?> <?php echo date('Y');?></p>
 				</div>
 			</div>
-			<div class="span3">&nbsp;</div>
+			<div class="span4">&nbsp;</div>
 		</div>
 	</div>
 	<jdoc:include type="modules" name="debug" style="none" />
