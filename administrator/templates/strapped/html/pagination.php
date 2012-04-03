@@ -68,7 +68,7 @@ function pagination_list_footer($list)
 {
 	$html = "<div class=\"pagination\">\n";
 	$html .= $list['pageslinks'];
-	$html .= "\n<input type=\"hidden\" name=\"limitstart\" value=\"".$list['limitstart']."\" />";
+	$html .= "\n<input type=\"hidden\" name=\"" . $list['prefix'] . "limitstart\" value=\"".$list['limitstart']."\" />";
 	$html .= "\n</div>";
 
 	return $html;
@@ -84,13 +84,11 @@ function pagination_list_render($list)
 	foreach( $list['pages'] as $page )
 	{
 		if($page['data']['active']) {
-			$html .= '<span class="active">';
 		}
 
 		$html .= $page['data'];
 
 		if($page['data']['active']) {
-			$html .= '</span>';
 		}
 	}
 
@@ -100,10 +98,14 @@ function pagination_list_render($list)
 
 	$html .= "</ul>";
 	return $html;
+	
 }
-
-function pagination_item_active(&$item) {
-	return "<li><a href=\"".$item->link."\" title=\"".$item->text."\">".$item->text."</a></li>";
+function pagination_item_active(&$item)
+{
+	if ($item->base>0)
+		return "<li><a href=\"#\" title=\"".$item->text."\"  onclick=\"document.adminForm." . $item->prefix . "limitstart.value=".$item->base."; Joomla.submitform();return false;\">".$item->text."</a></li>";
+	else
+		return "<li><a href=\"#\" title=\"".$item->text."\"  onclick=\"document.adminForm." . $item->prefix . "limitstart.value=0; Joomla.submitform();return false;\">".$item->text."</a></li>";
 }
 
 function pagination_item_inactive(&$item) {
