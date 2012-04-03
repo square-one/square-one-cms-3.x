@@ -120,9 +120,8 @@ body .navbar-fixed-top{
 .sidebar-nav .nav-list > li > a{
 	color: #555;
 }
-.sidebar-nav .nav-list .active > a{
-	background-color: #ddd;
-	text-shadow: 0 1px 0 #fff;
+.sidebar-nav .nav-list > li.active > a{
+	color: #fff;
 }
 
 /* Pagination in toolbar */
