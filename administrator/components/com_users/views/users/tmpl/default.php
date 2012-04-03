@@ -117,7 +117,7 @@ $loggeduser = JFactory::getUser();
 					<?php endif; ?>
 				</td>
 				<td>
-					<div class="fltrt">
+					<div class="pull-right">
 						<?php echo JHtml::_('users.filterNotes', $item->note_count, $item->id); ?>
 						<?php echo JHtml::_('users.notes', $item->note_count, $item->id); ?>
 						<?php echo JHtml::_('users.addNote', $item->id); ?>
@@ -129,7 +129,7 @@ $loggeduser = JFactory::getUser();
 						<?php echo $this->escape($item->name); ?>
 					<?php endif; ?>
 					<?php if (JDEBUG) : ?>
-						<div class="fltrt"><div class="button2-left smallsub"><div class="blank"><a href="<?php echo JRoute::_('index.php?option=com_users&view=debuguser&user_id='.(int) $item->id);?>">
+						<div class="pull-right"><div class="button2-left smallsub"><div class="blank"><a href="<?php echo JRoute::_('index.php?option=com_users&view=debuguser&user_id='.(int) $item->id);?>">
 						<?php echo JText::_('COM_USERS_DEBUG_USER');?></a></div></div></div>
 					<?php endif; ?>
 				</td>
