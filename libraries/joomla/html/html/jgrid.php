@@ -73,7 +73,6 @@ abstract class JHtmlJGrid
 			$html[] = '<a class="jgrid' . ($tip ? ' tip' : '') . '"';
 			$html[] = ' title="' . addslashes(htmlspecialchars($translate ? JText::_($inactive_title) : $inactive_title, ENT_COMPAT, 'UTF-8')) . '">';
 			$html[] = '<i class="icon-' . $inactive_class . '">';
-			$html[] = $text ? ('<span class="text">' . ($translate ? JText::_($text) : $text) . '</span>') :'';
 			$html[] = '</i>';
 			$html[] = '</a>';
 		}
