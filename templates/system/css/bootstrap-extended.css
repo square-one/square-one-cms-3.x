@@ -176,3 +176,15 @@ a.disabled:hover {
 .icon-checkin {
   background-position: -287px -24px;
 }
+.icon-purge {
+  background-position: -456px 0;
+}
+.icon-article {
+  background-position: -24px -24px;
+}
+.icon-image {
+  background-position: -456px -48px;
+}
+.icon-pagebreak {
+  background-position: -432px -119px;
+}
