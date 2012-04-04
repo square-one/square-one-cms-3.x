@@ -143,9 +143,36 @@ a.disabled:hover {
 }
 
 /* Mapping Bootstrap Icons => Joomla jGrid Classes */
-.icon-publish {
+.icon-publish,
+.icon-save,
+.icon-apply {
   background-position: -288px 0;
+}
+.icon-new,
+.icon-save-new {
+  background-position: -408px -96px;
 }
 .icon-unpublish {
   background-position: -216px -96px;
+}
+.icon-default,
+.icon-featured {
+  background-position: -120px 0;
+}
+.icon-notdefault {
+  background-position: -144px 0;
+}
+.icon-delete,
+.icon-cancel {
+  background-position: -312px 0;
+}
+.icon-copy,
+.icon-save-copy {
+  background-position: 0 -96px;
+}
+.icon-archive {
+  background-position: -168px -24px;
+}
+.icon-checkin {
+  background-position: -287px -24px;
 }
