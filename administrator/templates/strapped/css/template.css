@@ -59,8 +59,23 @@ body .navbar-fixed-top{
 	padding: 10px;
 	
 }
+@media (max-width: 767px) {
+  .header{
+  	margin-left: -20px;
+  	margin-right: -20px;
+  }
+}
 .header .navbar-search{
 	margin-top: 0;
+}
+@media (max-width: 979px) {
+	.header .navbar-search{
+		border-top: 0;
+	    border-bottom: 0;
+	    -webkit-box-shadow: none;
+	    -moz-box-shadow: none;
+	    box-shadow: none;
+	}
 }
 /* Logo */
 .logo{
@@ -87,6 +102,14 @@ body .navbar-fixed-top{
 	
 	margin-bottom: 20px;
 	
+}
+@media (max-width: 767px) {
+  .subhead{
+  	margin-left: -20px;
+  	margin-right: -20px;
+  	padding-left: 10px;
+  	padding-right: 10px;
+  }
 }
 .subhead h1{
 	font-size: 20px;
