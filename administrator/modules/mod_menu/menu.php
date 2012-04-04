@@ -122,7 +122,7 @@ class JAdminCssMenu extends JTree
 				if (!empty($this->_current->id)) {
 					$id = ' id="menu-'.strtolower($this->_current->id).'"';
 				}
-				echo '<ul'.$id.' class="menu-component">'."\n";
+				echo '<ul'.$id.' class="dropdown-menu menu-component">'."\n";
 			} else {
 				echo '<ul class="dropdown-menu">'."\n";
 			}
