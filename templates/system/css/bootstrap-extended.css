@@ -141,3 +141,11 @@ a.disabled:hover {
 .thumbnail.pull-right{
 	margin: 0 0 10px 10px;
 }
+
+/* Mapping Bootstrap Icons => Joomla jGrid Classes */
+.icon-publish {
+  background-position: -288px 0;
+}
+.icon-unpublish {
+  background-position: -216px -96px;
+}
