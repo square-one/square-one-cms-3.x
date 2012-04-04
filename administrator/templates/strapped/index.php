@@ -16,8 +16,8 @@ $doc = JFactory::getDocument();
 // Add Stylesheets
 $doc->addStyleSheet('../templates/system/css/bootstrap.css');
 $doc->addStyleSheet('../templates/system/css/bootstrap-extended.css');
-$doc->addStyleSheet('../templates/system/css/bootstrap-responsive.css');
 $doc->addStyleSheet('templates/'.$this->template.'/css/template.css');
+$doc->addStyleSheet('../templates/system/css/bootstrap-responsive.css');
 ?>
 <!DOCTYPE html>
 <html>
@@ -51,6 +51,7 @@ $doc->addStyleSheet('templates/'.$this->template.'/css/template.css');
     	$span = "span12";
     endif;
 	?>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<script src="<?php echo $this->baseurl; ?>/templates/<?php echo $this->template ?>/js/jquery.js"></script>
 	<script src="<?php echo $this->baseurl; ?>/templates/<?php echo $this->template ?>/js/bootstrap.min.js"></script>
 	<script type="text/javascript">
