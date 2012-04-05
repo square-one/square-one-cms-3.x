@@ -9,7 +9,7 @@
 // no direct access
 defined('_JEXEC') or die;
 ?>
-<table class="table table-striped">
+<table class="table table-striped table-condensed">
 	<thead>
 		<tr>
 			<th>
@@ -46,7 +46,7 @@ defined('_JEXEC') or die;
 				<?php echo JHtml::_('jgrid.published', $item->state, $i, '', false); ?>
 			</td>
 			<td class="center">
-				<?php echo JHtml::_('date', $item->created, 'Y-m-d H:i:s'); ?>
+				<?php echo JHtml::_('date', $item->created, 'Y-m-d'); ?>
 			</td>
 			<td class="center">
 				<?php echo $item->author_name;?>
