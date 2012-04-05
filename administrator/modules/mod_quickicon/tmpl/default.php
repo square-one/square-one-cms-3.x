@@ -11,7 +11,7 @@ defined('_JEXEC') or die;
 $html = JHtml::_('icons.buttons', $buttons);
 ?>
 <?php if (!empty($html)): ?>
-	<table class="table table-striped">
+	<table class="table table-striped table-condensed">
 		<tbody>
 			<?php echo $html;?>
 		</tbody>
