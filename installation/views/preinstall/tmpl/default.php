@@ -10,8 +10,8 @@ defined('_JEXEC') or die;
 <form action="index.php" method="post" id="adminForm" class="form-validate form-horizontal">
 	<div id="installer">
 		<fieldset>
-			<legend><?php echo JText::sprintf('INSTL_PRECHECK_FOR_VERSION', $this->version->getLongVersion()); ?> <span class="refresh">
-				<a class="btn btn-small" href="index.php?view=preinstall" onclick="return Install.goToPage('preinstall');" title="<?php echo JText::_('JCheck_Again'); ?>"><i class="icon-refresh"></i> <?php echo JText::_('JCheck_Again'); ?></a>
+			<legend><?php echo JText::sprintf('INSTL_PRECHECK_FOR_VERSION', $this->version->getShortVersion()); ?> <span class="refresh">
+				<a class="btn btn-small pull-right" href="index.php?view=preinstall" onclick="return Install.goToPage('preinstall');" title="<?php echo JText::_('JCheck_Again'); ?>"><i class="icon-refresh"></i> <?php echo JText::_('JCheck_Again'); ?></a>
 			</span>
 			</legend>
 			<div class="control-group">
