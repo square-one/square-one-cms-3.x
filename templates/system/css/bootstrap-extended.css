@@ -143,16 +143,30 @@ a.disabled:hover {
 }
 
 /* Mapping Bootstrap Icons => Joomla jGrid Classes */
+.grid_true,
+.grid_false {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-image: url("../img/glyphicons-halflings.png");
+  background-position: 14px 14px;
+  background-repeat: no-repeat;
+  *margin-right: .3em;
+}
 .icon-publish,
 .icon-save,
-.icon-apply {
+.icon-apply,
+.grid_true {
   background-position: -288px 0;
 }
 .icon-new,
 .icon-save-new {
   background-position: -408px -96px;
 }
-.icon-unpublish {
+.icon-unpublish,
+.grid_false {
   background-position: -216px -96px;
 }
 .icon-default,
@@ -187,4 +201,7 @@ a.disabled:hover {
 }
 .icon-pagebreak {
   background-position: -432px -119px;
+}
+.icon-unblock {
+  background-position: -192px -96px;
 }
