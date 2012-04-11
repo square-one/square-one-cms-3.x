@@ -205,3 +205,9 @@ a.disabled:hover {
 .icon-unblock {
   background-position: -192px -96px;
 }
+.icon-uparrow {
+  background-position: -289px -96px;
+}
+.icon-downarrow {
+  background-position: -312px -96px;
+}
