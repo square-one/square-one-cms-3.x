@@ -13,7 +13,6 @@ defined('_JEXEC') or die;
 	<legend><?php echo JText::_('COM_CONFIG_PERMISSION_SETTINGS'); ?></legend>
 	<?php foreach ($this->form->getFieldset('permissions') as $field): ?>
 		<div class="control-group">
-			<div class="control-label"><?php echo $field->label; ?></div>
 			<div class="controls"><?php echo $field->input; ?></div>
 		</div>
 	<?php endforeach; ?>
