@@ -18,6 +18,9 @@ $doc->addStyleSheet('../templates/system/css/bootstrap.css');
 $doc->addStyleSheet('../templates/system/css/bootstrap-extended.css');
 $doc->addStyleSheet('templates/'.$this->template.'/css/template.css');
 $doc->addStyleSheet('../templates/system/css/bootstrap-responsive.css');
+
+// Add current user information
+$user =& JFactory::getUser();
 ?>
 <!DOCTYPE html>
 <html>
@@ -84,7 +87,7 @@ $doc->addStyleSheet('../templates/system/css/bootstrap-responsive.css');
 								<li class=""><a href="./docs.html#wrapper">Wrapper</a></li>
 							</ul>
 						</li>
-						<li class="dropdown"> <a class="dropdown-toggle" data-toggle="dropdown" href="#">firstname.lastname <b class="caret"></b></a>
+						<li class="dropdown"> <a class="dropdown-toggle" data-toggle="dropdown" href="#"><?php echo $user->username; ?> <b class="caret"></b></a>
 							<ul class="dropdown-menu">
 								<li class=""><a href="./docs.html#banners">Account</a></li>
 								<li class=""><a href="./docs.html#contact">Contact</a></li>
@@ -123,7 +126,9 @@ $doc->addStyleSheet('../templates/system/css/bootstrap-responsive.css');
 		<div class="container">
 			<div class="row">
 				<div class="span2">
-					<div class="page-title"><h1><?php echo JHtml::_('string.truncate', $app->get('JComponentTitle'), 10, true, false);?></h1></div>
+					<div class="page-title">
+						<h1 class="tip-bottom" rel="placement:bottom;" title="<?php echo JHtml::_('string.truncate', $app->get('JComponentTitle'), 50, false, false);?>"><?php echo JHtml::_('string.truncate', $app->get('JComponentTitle'), 15, false, false);?></h1>
+					</div>
 				</div>
 				<div class="span10">
 					<jdoc:include type="modules" name="toolbar" style="no" />
@@ -172,6 +177,7 @@ $doc->addStyleSheet('../templates/system/css/bootstrap-responsive.css');
 	<jdoc:include type="modules" name="debug" style="none" />
 	<script>
 		jQuery('.tip').tooltip()
+		jQuery('.tip-bottom').tooltip({placement: "bottom"})
 	</script>
 </body>
 </html>
