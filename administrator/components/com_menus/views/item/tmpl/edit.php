@@ -43,7 +43,7 @@ JHtml::_('behavior.modal');
 </script>
 
 <form action="<?php echo JRoute::_('index.php?option=com_menus&layout=edit&id='.(int) $this->item->id); ?>" method="post" name="adminForm" id="item-form" class="form-validate form-horizontal">
-	<fieldset class="adminform">
+	<fieldset>
 		<ul class="nav nav-tabs">
 		  <li class="active"><a href="#details" data-toggle="tab"><?php echo JText::_('COM_MENUS_ITEM_DETAILS');?></a></li>
 		  <li><a href="#basic" data-toggle="tab"><?php echo JText::_('COM_MENUS_BASIC_FIELDSET_LABEL');?></a></li>
