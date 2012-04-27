@@ -77,12 +77,23 @@ body .navbar-fixed-top{
 	    box-shadow: none;
 	}
 }
+/* Search Module */
+.navbar-search .search-query{
+	background: rgba(255, 255, 255, 0.3);
+}
 /* Logo */
 .logo{
 	background: url(../images/logo.png) no-repeat 50% 50%;
 	display: block;
 	height: 30px;
 	text-indent: -9999px;
+}
+/* Page Title */
+.page-title{
+	color:white;
+	text-shadow:1px 1px 1px rgba(0, 0, 0, 0.8);
+	font-weight:normal;
+	font-size:20px;
 }
 /* Subhead */
 .subhead{
@@ -116,6 +127,11 @@ body .navbar-fixed-top{
 	font-weight: normal;
 	margin-left: 10px;
 	margin-top: 6px;
+}
+/* Toolbar */
+#toolbar .btn-primary{
+	width: 148px;
+	margin-right: 20px;
 }
 /* Content */
 .well .page-header{
