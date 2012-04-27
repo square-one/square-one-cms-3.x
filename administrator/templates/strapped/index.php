@@ -74,32 +74,24 @@ $user =& JFactory::getUser();
 					<ul class="nav pull-right">
 						<li class="dropdown"> <a class="dropdown-toggle" data-toggle="dropdown" href="#">Settings <b class="caret"></b></a>
 							<ul class="dropdown-menu">
-								<li class=""><a href="./docs.html#banners">Banners</a></li>
-								<li class=""><a href="./docs.html#contact">Contact</a></li>
-								<li class=""><a href="./com_com_content.html">Content</a></li>
-								<li class=""><a href="./docs.html#finder">Finder</a></li>
-								<li class=""><a href="./docs.html#mailto">Mailto</a></li>
-								<li class=""><a href="./docs.html#media">Media</a></li>
-								<li class=""><a href="./docs.html#newsfeeds">Newsfeeds</a></li>
-								<li class=""><a href="./docs.html#search">Search</a></li>
-								<li class=""><a href="./docs.html#users">Users</a></li>
-								<li class=""><a href="./docs.html#weblinks">Weblinks</a></li>
-								<li class=""><a href="./docs.html#wrapper">Wrapper</a></li>
+								<?php if($user->authorise('core.admin')):?>
+									<li><a href="<?php echo $this->baseurl; ?>/index.php?option=com_config">Global Configuration</a></li>
+									<li><a href="<?php echo $this->baseurl; ?>/index.php?option=com_admin&view=sysinfo">System Information</a></li>
+								<?php endif;?>
+								<?php if($user->authorise('core.manage', 'com_cache')):?>
+									 <li><a href="<?php echo $this->baseurl; ?>/index.php?option=com_cache">Clear Cache</a></li>
+								<?php endif;?>
+								<?php if($user->authorise('core.admin', 'com_checkin')):?>
+									<li><a href="<?php echo $this->baseurl; ?>/index.php?option=com_checkin">Global Check-in</a></li>
+								<?php endif;?>
+								<?php if($user->authorise('core.manage', 'com_installer')):?>
+									 <li><a href="<?php echo $this->baseurl; ?>/index.php?option=com_installer">Install Extensions</a></li>
+								<?php endif;?>
 							</ul>
 						</li>
 						<li class="dropdown"> <a class="dropdown-toggle" data-toggle="dropdown" href="#"><?php echo $user->username; ?> <b class="caret"></b></a>
 							<ul class="dropdown-menu">
-								<li class=""><a href="./docs.html#banners">Account</a></li>
-								<li class=""><a href="./docs.html#contact">Contact</a></li>
-								<li class=""><a href="./com_com_content.html">Content</a></li>
-								<li class=""><a href="./docs.html#finder">Finder</a></li>
-								<li class=""><a href="./docs.html#mailto">Mailto</a></li>
-								<li class=""><a href="./docs.html#media">Media</a></li>
-								<li class=""><a href="./docs.html#newsfeeds">Newsfeeds</a></li>
-								<li class=""><a href="./docs.html#search">Search</a></li>
-								<li class=""><a href="./docs.html#users">Users</a></li>
-								<li class=""><a href="./docs.html#weblinks">Weblinks</a></li>
-								<li class=""><a href="./docs.html#wrapper">Wrapper</a></li>
+								<li class=""><a href="index.php?option=com_admin&task=profile.edit&id=<?php echo $user->id;?>">Account</a></li>
 							</ul>
 						</li>
 					</ul>
@@ -115,8 +107,16 @@ $user =& JFactory::getUser();
 				<div class="span2">
 					<a class="logo" href="<?php echo $this->baseurl; ?>"></a>
 				</div>
-				<div class="span10 navbar-search">
+				<div class="span7">
+					<h1 class="page-title"><?php echo JHtml::_('string.truncate', $app->get('JComponentTitle'), 40, false, false);?></h1>
+				</div>
+				<div class="span3">
 					<jdoc:include type="modules" name="searchload" style="none" />
+					<!-- placeholder search, remove once we have an admin search -->
+					<form class="navbar-search pull-right">
+		      			<input type="text" class="search-query" placeholder="Search" style="margin: 0 auto;" data-provide="typeahead" data-items="10" data-source="[&quot;Alabama&quot;,&quot;Alaska&quot;,&quot;Arizona&quot;,&quot;Arkansas&quot;,&quot;California&quot;,&quot;Colorado&quot;,&quot;Connecticut&quot;,&quot;Delaware&quot;,&quot;Florida&quot;,&quot;Georgia&quot;,&quot;Hawaii&quot;,&quot;Idaho&quot;,&quot;Illinois&quot;,&quot;Indiana&quot;,&quot;Iowa&quot;,&quot;Kansas&quot;,&quot;Kentucky&quot;,&quot;Louisiana&quot;,&quot;Maine&quot;,&quot;Maryland&quot;,&quot;Massachusetts&quot;,&quot;Michigan&quot;,&quot;Minnesota&quot;,&quot;Mississippi&quot;,&quot;Missouri&quot;,&quot;Montana&quot;,&quot;Nebraska&quot;,&quot;Nevada&quot;,&quot;New Hampshire&quot;,&quot;New Jersey&quot;,&quot;New Mexico&quot;,&quot;New York&quot;,&quot;North Dakota&quot;,&quot;North Carolina&quot;,&quot;Ohio&quot;,&quot;Oklahoma&quot;,&quot;Oregon&quot;,&quot;Pennsylvania&quot;,&quot;Rhode Island&quot;,&quot;South Carolina&quot;,&quot;South Dakota&quot;,&quot;Tennessee&quot;,&quot;Texas&quot;,&quot;Utah&quot;,&quot;Vermont&quot;,&quot;Virginia&quot;,&quot;Washington&quot;,&quot;West Virginia&quot;,&quot;Wisconsin&quot;,&quot;Wyoming&quot;]">
+		      		</form>
+		      		<!-- placeholder search, remove once we have an admin search -->
 				</div>
 			</div>
 		</div>
@@ -125,12 +125,7 @@ $user =& JFactory::getUser();
 	<div class="subhead">
 		<div class="container">
 			<div class="row">
-				<div class="span2">
-					<div class="page-title">
-						<h1 class="tip-bottom" rel="placement:bottom;" title="<?php echo JHtml::_('string.truncate', $app->get('JComponentTitle'), 50, false, false);?>"><?php echo JHtml::_('string.truncate', $app->get('JComponentTitle'), 15, false, false);?></h1>
-					</div>
-				</div>
-				<div class="span10">
+				<div class="span12">
 					<jdoc:include type="modules" name="toolbar" style="no" />
 				</div>
 			</div>
