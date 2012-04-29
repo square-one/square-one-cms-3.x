@@ -149,27 +149,25 @@ $canEdit	= $this->item->params->get('access-edit');
 		$link->setVar('return', base64_encode($returnURL));
 	endif;
 ?>
-			<p class="readmore">
-				<a href="<?php echo $link; ?>">
-					<?php if (!$params->get('access-view')) :
-						echo JText::_('COM_CONTENT_REGISTER_TO_READ_MORE');
-					elseif ($readmore = $this->item->alternative_readmore) :
-						echo $readmore;
-						if ($params->get('show_readmore_title', 0) != 0) :
-						    echo JHtml::_('string.truncate', ($this->item->title), $params->get('readmore_limit'));
-						endif;
-					elseif ($params->get('show_readmore_title', 0) == 0) :
-						echo JText::sprintf('COM_CONTENT_READ_MORE_TITLE');
-					else :
-						echo JText::_('COM_CONTENT_READ_MORE');
-						echo JHtml::_('string.truncate', ($this->item->title), $params->get('readmore_limit'));
-					endif; ?></a>
-		</p>
+	<a class="btn" href="<?php echo $link; ?>">
+		<?php if (!$params->get('access-view')) :
+			echo JText::_('COM_CONTENT_REGISTER_TO_READ_MORE');
+		elseif ($readmore = $this->item->alternative_readmore) :
+			echo $readmore;
+			if ($params->get('show_readmore_title', 0) != 0) :
+			    echo JHtml::_('string.truncate', ($this->item->title), $params->get('readmore_limit'));
+			endif;
+		elseif ($params->get('show_readmore_title', 0) == 0) :
+			echo JText::sprintf('COM_CONTENT_READ_MORE_TITLE');
+		else :
+			echo JText::_('COM_CONTENT_READ_MORE');
+			echo JHtml::_('string.truncate', ($this->item->title), $params->get('readmore_limit'));
+		endif; ?></a>
 <?php endif; ?>
 
 <?php if ($this->item->state == 0) : ?>
 </div>
 <?php endif; ?>
 
-<div class="item-separator"></div>
+<hr class="divider-vertical" />
 <?php echo $this->item->event->afterDisplayContent; ?>
