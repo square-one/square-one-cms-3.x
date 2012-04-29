@@ -49,9 +49,9 @@ class JHtmlIcon
 		$status = 'width=400,height=350,menubar=yes,resizable=yes';
 
 		if ($params->get('show_icons')) {
-			$text = JHtml::_('image', 'system/emailButton.png', JText::_('JGLOBAL_EMAIL'), NULL, true);
+			$text = '<i class="icon-envelope"></i> '.JText::_('JGLOBAL_EMAIL');
 		} else {
-			$text = '&#160;'.JText::_('JGLOBAL_EMAIL');
+			$text = JText::_('JGLOBAL_EMAIL');
 		}
 
 		$attribs['title']	= JText::_('JGLOBAL_EMAIL');
@@ -138,9 +138,9 @@ class JHtmlIcon
 
 		// checks template image directory for image, if non found default are loaded
 		if ($params->get('show_icons')) {
-			$text = JHtml::_('image', 'system/printButton.png', JText::_('JGLOBAL_PRINT'), NULL, true);
+			$text = '<i class="icon-print"></i> '.JText::_('JGLOBAL_PRINT');
 		} else {
-			$text = JText::_('JGLOBAL_ICON_SEP') .'&#160;'. JText::_('JGLOBAL_PRINT') .'&#160;'. JText::_('JGLOBAL_ICON_SEP');
+			$text = JText::_('JGLOBAL_PRINT');
 		}
 
 		$attribs['title']	= JText::_('JGLOBAL_PRINT');
@@ -154,9 +154,9 @@ class JHtmlIcon
 	{
 		// checks template image directory for image, if non found default are loaded
 		if ($params->get('show_icons')) {
-			$text = JHtml::_('image', 'system/printButton.png', JText::_('JGLOBAL_PRINT'), NULL, true);
+			$text = $text = '<i class="icon-print"></i> '.JText::_('JGLOBAL_PRINT');
 		} else {
-			$text = JText::_('JGLOBAL_ICON_SEP') .'&#160;'. JText::_('JGLOBAL_PRINT') .'&#160;'. JText::_('JGLOBAL_ICON_SEP');
+			$text = JText::_('JGLOBAL_PRINT');
 		}
 		return '<a href="#" onclick="window.print();return false;">'.$text.'</a>';
 	}
