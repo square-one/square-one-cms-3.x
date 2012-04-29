@@ -18,6 +18,28 @@ $canEdit	= $this->item->params->get('access-edit');
 <?php if ($this->item->state == 0) : ?>
 <div class="system-unpublished">
 <?php endif; ?>
+
+<?php if ($params->get('show_print_icon') || $params->get('show_email_icon') || $canEdit) : ?>
+	<ul class="btn-toolbar pull-right">
+		<?php if ($params->get('show_print_icon')) : ?>
+		<li class="btn-group print-icon">
+			<?php echo JHtml::_('icon.print_popup', $this->item, $params); ?>
+		</li>
+		<?php endif; ?>
+		<?php if ($params->get('show_email_icon')) : ?>
+		<li class="btn-group email-icon">
+			<?php echo JHtml::_('icon.email', $this->item, $params); ?>
+		</li>
+		<?php endif; ?>
+
+		<?php if ($canEdit) : ?>
+		<li class="btn-group edit-icon">
+			<?php echo JHtml::_('icon.edit', $this->item, $params); ?>
+		</li>
+		<?php endif; ?>
+	</ul>
+<?php endif; ?>
+
 <?php if ($params->get('show_title')) : ?>
 	<h2>
 		<?php if ($params->get('link_titles') && $params->get('access-view')) : ?>
@@ -27,27 +49,6 @@ $canEdit	= $this->item->params->get('access-edit');
 			<?php echo $this->escape($this->item->title); ?>
 		<?php endif; ?>
 	</h2>
-<?php endif; ?>
-
-<?php if ($params->get('show_print_icon') || $params->get('show_email_icon') || $canEdit) : ?>
-	<ul class="actions">
-		<?php if ($params->get('show_print_icon')) : ?>
-		<li class="print-icon">
-			<?php echo JHtml::_('icon.print_popup', $this->item, $params); ?>
-		</li>
-		<?php endif; ?>
-		<?php if ($params->get('show_email_icon')) : ?>
-		<li class="email-icon">
-			<?php echo JHtml::_('icon.email', $this->item, $params); ?>
-		</li>
-		<?php endif; ?>
-
-		<?php if ($canEdit) : ?>
-		<li class="edit-icon">
-			<?php echo JHtml::_('icon.edit', $this->item, $params); ?>
-		</li>
-		<?php endif; ?>
-	</ul>
 <?php endif; ?>
 
 <?php if (!$params->get('show_intro')) : ?>
