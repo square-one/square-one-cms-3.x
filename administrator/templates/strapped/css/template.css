@@ -30,6 +30,7 @@ body .navbar-fixed-top{
 }
 .navbar-inner{
 	background: #142849;
+	min-height: 0;
 }
 .navbar .navbar-text{
 	line-height: 30px;
@@ -38,6 +39,7 @@ body .navbar-fixed-top{
 	padding: 7px 12px;
 	font-size: 16px;
 	margin-left: 0;
+	color: #ffffff;
 }
 .navbar .nav > li > a{
 	padding: 5px 10px;
