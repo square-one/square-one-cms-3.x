@@ -31,35 +31,23 @@ if (!empty($this->item->pagination) AND $this->item->pagination && !$this->item-
  echo $this->item->pagination;
 }
  ?>
-
-<?php if ($params->get('show_title')) : ?>
-	<h2>
-	<?php if ($params->get('link_titles') && !empty($this->item->readmore_link)) : ?>
-		<a href="<?php echo $this->item->readmore_link; ?>">
-		<?php echo $this->escape($this->item->title); ?></a>
-	<?php else : ?>
-		<?php echo $this->escape($this->item->title); ?>
-	<?php endif; ?>
-	</h2>
-<?php endif; ?>
-
 <?php if ($canEdit ||  $params->get('show_print_icon') || $params->get('show_email_icon')) : ?>
-	<ul class="actions">
+	<ul class="btn-toolbar pull-right">
 	<?php if (!$this->print) : ?>
 		<?php if ($params->get('show_print_icon')) : ?>
-			<li class="print-icon">
+			<li class="btn-group print-icon">
 			<?php echo JHtml::_('icon.print_popup',  $this->item, $params); ?>
 			</li>
 		<?php endif; ?>
 
 		<?php if ($params->get('show_email_icon')) : ?>
-			<li class="email-icon">
+			<li class="btn-group email-icon">
 			<?php echo JHtml::_('icon.email',  $this->item, $params); ?>
 			</li>
 		<?php endif; ?>
 
 		<?php if ($canEdit) : ?>
-			<li class="edit-icon">
+			<li class="btn-group edit-icon">
 			<?php echo JHtml::_('icon.edit', $this->item, $params); ?>
 			</li>
 		<?php endif; ?>
@@ -71,6 +59,18 @@ if (!empty($this->item->pagination) AND $this->item->pagination && !$this->item-
 	<?php endif; ?>
 
 	</ul>
+<?php endif; ?>
+<?php if ($params->get('show_title')) : ?>
+	<div class="page-header">
+		<h2>
+		<?php if ($params->get('link_titles') && !empty($this->item->readmore_link)) : ?>
+			<a href="<?php echo $this->item->readmore_link; ?>">
+			<?php echo $this->escape($this->item->title); ?></a>
+		<?php else : ?>
+			<?php echo $this->escape($this->item->title); ?>
+		<?php endif; ?>
+		</h2>
+	</div>
 <?php endif; ?>
 
 <?php  if (!$params->get('show_intro')) :
