@@ -61,21 +61,19 @@ abstract class JHtmlJGrid
 		}
 		if ($enabled)
 		{
-			$html[] = '<a class="jgrid' . ($tip ? ' hasTip' : '') . '"';
+			$html[] = '<a class="jgrid' . ($tip ? ' tip' : '') . '"';
 			$html[] = ' href="javascript:void(0);" onclick="return listItemTask(\'' . $checkbox . $i . '\',\'' . $prefix . $task . '\')"';
 			$html[] = ' title="' . addslashes(htmlspecialchars($translate ? JText::_($active_title) : $active_title, ENT_COMPAT, 'UTF-8')) . '">';
-			$html[] = '<span class="state ' . $active_class . '">';
-			$html[] = $text ? ('<span class="text">' . ($translate ? JText::_($text):$text) . '</span>') : '';
-			$html[] = '</span>';
+			$html[] = '<i class="icon-' . $active_class . '">';
+			$html[] = '</i>';
 			$html[] = '</a>';
 		}
 		else
 		{
-			$html[] = '<a class="jgrid' . ($tip ? ' hasTip' : '') . '"';
+			$html[] = '<a class="jgrid' . ($tip ? ' tip' : '') . '"';
 			$html[] = ' title="' . addslashes(htmlspecialchars($translate ? JText::_($inactive_title) : $inactive_title, ENT_COMPAT, 'UTF-8')) . '">';
-			$html[] = '<span class="state ' . $inactive_class . '">';
-			$html[] = $text ? ('<span class="text">' . ($translate ? JText::_($text) : $text) . '</span>') :'';
-			$html[] = '</span>';
+			$html[] = '<i class="icon-' . $inactive_class . '">';
+			$html[] = '</i>';
 			$html[] = '</a>';
 		}
 		return implode($html);
@@ -221,7 +219,7 @@ abstract class JHtmlJGrid
 	 * @param   boolean       $enabled   An optional setting for access control on the action.
 	 * @param   string        $checkbox  An optional prefix for checkboxes.
 	 *
-	 * @return  The Html code
+	 * @return  string  The HTML code
 	 *
 	 * @see     JHtmlJGrid::state
 	 * @since   11.1

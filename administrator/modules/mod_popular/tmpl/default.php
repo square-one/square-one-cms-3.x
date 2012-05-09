@@ -9,7 +9,7 @@
 // no direct access
 defined('_JEXEC') or die;
 ?>
-<table class="adminlist">
+<table class="table table-striped table-condensed">
 	<thead>
 		<tr>
 			<th>
@@ -41,7 +41,7 @@ defined('_JEXEC') or die;
 				endif; ?>
 			</th>
 			<td class="center">
-				<?php echo JHtml::_('date', $item->created, 'Y-m-d H:i:s'); ?>
+				<?php echo JHtml::_('date', $item->created, 'Y-m-d'); ?>
 			</td>
 			<td class="center">
 				<?php echo $item->hits;?>
@@ -58,4 +58,9 @@ defined('_JEXEC') or die;
 		</tr>
 	</tbody>
 <?php endif; ?>
+	<tfoot>
+		<tr>
+			<td colspan="3"></td>
+		</tr>
+	</tfoot>
 </table>

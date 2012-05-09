@@ -55,7 +55,7 @@ class modMenuHelper
 			if ($items) {
 				foreach($items as $i => $item)
 				{
-                    if (isset($item->component) && !$user->authorise('core.manage', $item->component))
+                    if (isset($item->component) && !$user->authorise('core.manage', $item->component) || $item->level > 2)
                     {
                         unset($items[$i]);
                         continue;

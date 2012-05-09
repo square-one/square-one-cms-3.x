@@ -9,7 +9,7 @@
 // No direct access.
 defined('_JEXEC') or die;
 ?>
-<table class="adminlist">
+<table class="table table-striped table-condensed">
 	<thead>
 		<tr>
 			<th>
@@ -57,7 +57,7 @@ defined('_JEXEC') or die;
 				<?php echo $user->id; ?>
 			</td>
 			<td class="center">
-				<?php echo JHtml::_('date', $user->time, 'Y-m-d H:i:s'); ?>
+				<?php echo JHtml::_('date', $user->time, 'Y-m-d'); ?>
 			</td>
 			<td class="center">
 				<?php if ($user->client_id == 0) :?>
@@ -69,4 +69,9 @@ defined('_JEXEC') or die;
 		</tr>
 		<?php endforeach; ?>
 	</tbody>
+	<tfoot>
+		<tr>
+			<td colspan="5"></td>
+		</tr>
+	</tfoot>
 </table>

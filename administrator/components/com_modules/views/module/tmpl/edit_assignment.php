@@ -39,74 +39,64 @@ $menuTypes = MenusHelper::getMenuLinks();
 				}
 			}
 		</script>
-
-		<fieldset class="adminform">
-			<legend><?php echo JText::_('COM_MODULES_MENU_ASSIGNMENT'); ?></legend>
-			<label id="jform_menus-lbl" for="jform_menus"><?php echo JText::_('COM_MODULES_MODULE_ASSIGN'); ?></label>
-
-			<fieldset id="jform_menus" class="radio">
+		<div class="control-group">
+			<label id="jform_menus-lbl" class="control-label" for="jform_menus"><?php echo JText::_('COM_MODULES_MODULE_ASSIGN'); ?></label>
+			<div id="jform_menus" class="controls">
 				<select name="jform[assignment]" id="jform_assignment">
 					<?php echo JHtml::_('select.options', ModulesHelper::getAssignmentOptions($this->item->client_id), 'value', 'text', $this->item->assignment, true);?>
 				</select>
-
-			</fieldset>
-
-			<label id="jform_menuselect-lbl" for="jform_menuselect"><?php echo JText::_('JGLOBAL_MENU_SELECTION'); ?></label>
-
-			<button type="button" class="jform-assignments-button jform-rightbtn" onclick="$$('.chk-menulink').each(function(el) { el.checked = !el.checked; });">
-				<?php echo JText::_('JGLOBAL_SELECTION_INVERT'); ?>
-			</button>
-
-			<button type="button" class="jform-assignments-button jform-rightbtn" onclick="$$('.chk-menulink').each(function(el) { el.checked = false; });">
-				<?php echo JText::_('JGLOBAL_SELECTION_NONE'); ?>
-			</button>
-
-			<button type="button" class="jform-assignments-button jform-rightbtn" onclick="$$('.chk-menulink').each(function(el) { el.checked = true; });">
-				<?php echo JText::_('JGLOBAL_SELECTION_ALL'); ?>
-			</button>
-
-			<div class="clr"></div>
-
-			<div id="menu-assignment">
-
-			<?php echo JHtml::_('tabs.start', 'module-menu-assignment-tabs', array('useCookie'=>1));?>
-
-			<?php foreach ($menuTypes as &$type) :
-				echo JHtml::_('tabs.panel', $type->title ? $type->title : $type->menutype, $type->menutype.'-details');
-
-				$count 	= count($type->links);
-				$i		= 0;
-				if ($count) :
-				?>
-				<ul class="menu-links">
-					<?php
-					foreach ($type->links as $link) :
-						if (trim($this->item->assignment) == '-'):
-							$checked = '';
-						elseif ($this->item->assignment == 0):
-							$checked = ' checked="checked"';
-						elseif ($this->item->assignment < 0):
-							$checked = in_array(-$link->value, $this->item->assigned) ? ' checked="checked"' : '';
-						elseif ($this->item->assignment > 0) :
-							$checked = in_array($link->value, $this->item->assigned) ? ' checked="checked"' : '';
-						endif;
-					?>
-					<li class="menu-link">
-						<input type="checkbox" class="chk-menulink" name="jform[assigned][]" value="<?php echo (int) $link->value;?>" id="link<?php echo (int) $link->value;?>"<?php echo $checked;?>/>
-						<label for="link<?php echo (int) $link->value;?>">
-							<?php echo $link->text; ?>
-						</label>
-					</li>
-					<?php if ($count > 20 && ++$i == ceil($count/2)) :?>
-					</ul><ul class="menu-links">
-					<?php endif; ?>
+			</div>
+		</div>
+		<div class="control-group">
+			<label id="jform_menuselect-lbl" class="control-label" for="jform_menuselect"><?php echo JText::_('JGLOBAL_MENU_SELECTION'); ?></label>
+			<div class="controls">
+				<div class="btn-toolbar">
+					<div class="btn-group">
+						<button class="btn" type="button" class="jform-assignments-button jform-rightbtn" onclick="$$('.chk-menulink').each(function(el) { el.checked = !el.checked; });">
+							<i class="icon-adjust"></i> <?php echo JText::_('JGLOBAL_SELECTION_INVERT'); ?>
+						</button>
+						<button class="btn" type="button" class="jform-assignments-button jform-rightbtn" onclick="$$('.chk-menulink').each(function(el) { el.checked = false; });">
+							<i class="icon-ban-circle"></i> <?php echo JText::_('JGLOBAL_SELECTION_NONE'); ?>
+						</button>
+						<button class="btn" type="button" class="jform-assignments-button jform-rightbtn" onclick="$$('.chk-menulink').each(function(el) { el.checked = true; });">
+							<i class="icon-plus-sign"></i> <?php echo JText::_('JGLOBAL_SELECTION_ALL'); ?>
+						</button>
+					</div>
+				</div>
+				
+				<ul id="menu-assignment" class="thumbnails">
+					<?php foreach ($menuTypes as &$type) :
+						$count 	= count($type->links);
+						$i		= 0;
+						if ($count) :
+						?>
+						<li class="span3">
+							<div class="thumbnail">
+								<h5><?php echo $type->title;?></h5>
+								<?php
+								foreach ($type->links as $link) :
+									if (trim($this->item->assignment) == '-'):
+										$checked = '';
+									elseif ($this->item->assignment == 0):
+										$checked = ' checked="checked"';
+									elseif ($this->item->assignment < 0):
+										$checked = in_array(-$link->value, $this->item->assigned) ? ' checked="checked"' : '';
+									elseif ($this->item->assignment > 0) :
+										$checked = in_array($link->value, $this->item->assigned) ? ' checked="checked"' : '';
+									endif;
+								?>
+									<label class="checkbox small" for="link<?php echo (int) $link->value;?>">
+										<input type="checkbox" class="chk-menulink" name="jform[assigned][]" value="<?php echo (int) $link->value;?>" id="link<?php echo (int) $link->value;?>"<?php echo $checked;?>/> 
+										<?php echo $link->text; ?>
+									</label>
+								<?php if ($count > 20 && ++$i == ceil($count/2)) :?>
+									<hr />
+								<?php endif; ?>
+								<?php endforeach; ?>
+							</div>
+						</li>
+						<?php endif; ?>
 					<?php endforeach; ?>
 				</ul>
-				<div class="clr"></div>
-				<?php endif; ?>
-			<?php endforeach; ?>
-
-			<?php echo JHtml::_('tabs.end');?>
-
 			</div>
-		</fieldset>
+		</div>

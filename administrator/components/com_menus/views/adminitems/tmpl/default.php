@@ -44,7 +44,7 @@ $saveOrder 	= ($listOrder == 'a.lft' && $listDirn == 'asc');
 	</fieldset>
 	<div class="clr"> </div>
 <?php //Set up the grid heading. ?>
-	<table class="adminlist">
+	<table class="table table-striped">
 		<thead>
 			<tr>
 				<th width="1%">

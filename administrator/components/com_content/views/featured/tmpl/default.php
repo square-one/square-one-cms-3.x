@@ -20,33 +20,36 @@ $canOrder	= $user->authorise('core.edit.state', 'com_content.article');
 $saveOrder	= $listOrder == 'fp.ordering';
 ?>
 <form action="<?php echo JRoute::_('index.php?option=com_content&view=featured');?>" method="post" name="adminForm" id="adminForm">
-	<fieldset id="filter-bar">
-		<div class="filter-search fltlft">
-			<label class="filter-search-lbl" for="filter_search"><?php echo JText::_('JSEARCH_FILTER_LABEL'); ?></label>
-			<input type="text" name="filter_search" id="filter_search" value="<?php echo $this->escape($this->state->get('filter.search')); ?>" title="<?php echo JText::_('COM_CONTENT_FILTER_SEARCH_DESC'); ?>" />
-			<button type="submit"><?php echo JText::_('JSEARCH_FILTER_SUBMIT'); ?></button>
-			<button type="button" onclick="document.id('filter_search').value='';this.form.submit();"><?php echo JText::_('JSEARCH_FILTER_CLEAR'); ?></button>
+	<div id="filter-bar" class="btn-toolbar">
+		<div class="btn-group pull-right">
+			<a data-toggle="collapse" data-target="#filters" class="btn"><?php echo JText::_('JSEARCH_FILTER_LABEL'); ?> <span class="caret"></span></a>
 		</div>
-		<div class="filter-select fltrt">
-
+		<div class="filter-search btn-group pull-left">
+			<input type="text" name="filter_search" id="filter_search" placeholder="<?php echo JText::_('COM_CONTENT_FILTER_SEARCH_DESC'); ?>" value="<?php echo $this->escape($this->state->get('filter.search')); ?>" title="<?php echo JText::_('COM_CONTENT_FILTER_SEARCH_DESC'); ?>" />
+		</div>
+		<div class="btn-group">
+			<button class="btn tip" type="submit" title="<?php echo JText::_('JSEARCH_FILTER_SUBMIT'); ?>"><i class="icon-search"></i></button>
+			<button class="btn tip" type="button" title="<?php echo JText::_('JSEARCH_FILTER_CLEAR'); ?>" onclick="document.id('filter_search').value='';this.form.submit();"><i class="icon-remove"></i></button>
+		</div>
+	</div>
+	<div class="clearfix"> </div>
+	<div class="collapse" id="filters">
+		<div class="filter-select well">
 			<select name="filter_published" class="inputbox" onchange="this.form.submit()">
 				<option value=""><?php echo JText::_('JOPTION_SELECT_PUBLISHED');?></option>
 				<?php echo JHtml::_('select.options', JHtml::_('jgrid.publishedOptions'), 'value', 'text', $this->state->get('filter.published'), true);?>
 			</select>
-
-            <select name="filter_access" class="inputbox" onchange="this.form.submit()">
+	        <select name="filter_access" class="inputbox" onchange="this.form.submit()">
 				<option value=""><?php echo JText::_('JOPTION_SELECT_ACCESS');?></option>
 				<?php echo JHtml::_('select.options', JHtml::_('access.assetgroups'), 'value', 'text', $this->state->get('filter.access'));?>
 			</select>
-
 			<select name="filter_language" class="inputbox" onchange="this.form.submit()">
 				<option value=""><?php echo JText::_('JOPTION_SELECT_LANGUAGE');?></option>
 				<?php echo JHtml::_('select.options', JHtml::_('contentlanguage.existing', true, true), 'value', 'text', $this->state->get('filter.language'));?>
 			</select>
 		</div>
-	</fieldset>
-	<div class="clr"> </div>
-	<table class="adminlist">
+	</div>
+	<table class="table table-striped">
 		<thead>
 			<tr>
 				<th width="1%">
@@ -140,7 +143,7 @@ $saveOrder	= $listOrder == 'fp.ordering';
 							<?php endif; ?>
 						<?php endif; ?>
 						<?php $disabled = $saveOrder ?  '' : 'disabled="disabled"'; ?>
-						<input type="text" name="order[]" size="5" value="<?php echo $item->ordering;?>" <?php echo $disabled ?> class="text-area-order" />
+						<input type="text" name="order[]" size="5" value="<?php echo $item->ordering;?>" <?php echo $disabled ?> class="span1 text-area-order" />
 					<?php else : ?>
 						<?php echo $item->ordering; ?>
 					<?php endif; ?>

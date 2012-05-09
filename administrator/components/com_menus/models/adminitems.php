@@ -216,7 +216,7 @@ class MenusModelAdminitems extends JModelList
 		}
 
 		// Add the list ordering clause.
-		$query->order($db->getEscaped($this->getState('list.ordering', 'a.lft')).' '.$db->getEscaped($this->getState('list.direction', 'ASC')));
+		$query->order($db->escape($this->getState('list.ordering', 'a.lft')).' '.$db->escape($this->getState('list.direction', 'ASC')));
 
 		return $query;
 	}

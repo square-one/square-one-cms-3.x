@@ -17,7 +17,6 @@ if (array_key_exists('REQUEST_METHOD', $_SERVER)) die();
 
 // Set flag that this is a parent file.
 define('_JEXEC', 1);
-define('DS', DIRECTORY_SEPARATOR);
 
 error_reporting(E_ALL | E_NOTICE);
 ini_set('display_errors', 1);
@@ -34,7 +33,7 @@ if (!defined('_JDEFINES'))
 	require_once JPATH_BASE . '/includes/defines.php';
 }
 
-require_once JPATH_LIBRARIES . '/import.php';
+require_once JPATH_LIBRARIES . '/import.legacy.php';
 require_once JPATH_LIBRARIES . '/cms.php';
 
 // Force library to be in JError legacy mode

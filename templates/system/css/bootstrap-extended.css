@@ -1,0 +1,213 @@
+/* Extending Bootstrap */
+/* Typography */
+.small{
+	font-size: 11px;
+}
+/* Max Width */
+iframe,
+svg{
+	max-width: 100%;
+}
+/* Disabled Link */
+a.disabled,
+a.disabled:hover {
+  color: #999999;
+  background-color: transparent;
+  cursor: default;
+  text-decoration: none;
+}
+/* Hero Banner */
+.hero-unit {
+	text-align:center;
+}
+.hero-unit .lead {
+	margin-bottom: 18px;
+	font-size: 20px;
+	font-weight: 200;
+	line-height: 27px;
+}
+.btn .caret {
+	margin-bottom:7px;
+}
+.blog-row-rule,
+.blog-item-rule {
+	border:0;
+}
+
+/* Alternating Rows */
+.row-even,.row-odd{
+	padding: 5px;
+	width: 99%;
+	border-bottom: 1px solid #DDD;
+}
+.row-odd {
+	background-color: #fff;
+}
+.row-even {
+	background-color: #f9f9f9;
+}
+
+.blog-row-rule,
+.blog-item-rule {
+	border:0;
+}
+
+/* Row reveal */
+.row-fluid .row-reveal{
+	visibility: hidden;
+}
+.row-fluid:hover .row-reveal{
+	visibility: visible;
+}
+
+/* Buttons */
+.btn-wide{
+	width: 80%;
+}
+
+/* Nav List Offset */
+.nav-list > li.offset > a{
+	padding-left: 30px;
+	font-size: 12px;
+}
+.blog-row-rule,
+.blog-item-rule {
+	border:0;
+}
+
+.row-fluid .offset1 {
+  margin-left: 8.382978723%;
+}
+.row-fluid .offset2 {
+  margin-left: 16.89361702%;
+}
+.row-fluid .offset3 {
+  margin-left: 25.404255317%;
+}
+.row-fluid .offset4 {
+  margin-left: 33.914893614%;
+}
+.row-fluid .offset5 {
+  margin-left: 42.425531911%;
+}
+.row-fluid .offset6 {
+  margin-left: 50.93617020799999%;
+}
+.row-fluid .offset7 {
+  margin-left: 59.446808505%;
+}
+.row-fluid .offset8 {
+  margin-left: 67.95744680199999%;
+}
+.row-fluid .offset9 {
+  margin-left: 76.468085099%;
+}
+.row-fluid .offset10 {
+  margin-left: 84.97872339599999%;
+}
+.row-fluid .offset11 {
+  margin-left: 91.489361693%;
+}
+
+/* Navbar Buttons */
+.navbar .nav > li > a.btn{
+	padding: 4px 10px;
+	line-height: 18px;
+}
+
+/* Nav Tabs Dark */
+.nav-tabs.nav-dark{
+	border-bottom: 1px solid #333;
+	text-shadow: 1px 1px 1px #000;
+}
+.nav-tabs.nav-dark > li > a{
+	color: #F8F8F8;
+}
+.nav-tabs.nav-dark > li > a:hover {
+  border-color: #333 #333 #111;
+  background-color: #777777;
+}
+.nav-tabs.nav-dark > .active > a, .nav-tabs.nav-dark > .active > a:hover {
+  color: #ffffff;
+  background-color: #555555;
+  border: 1px solid #222;
+  border-bottom-color: transparent;
+}
+
+/* Inline Thumbnails */
+.thumbnail.pull-left{
+	margin: 0 10px 10px 0;
+}
+.thumbnail.pull-right{
+	margin: 0 0 10px 10px;
+}
+
+/* Mapping Bootstrap Icons => Joomla jGrid Classes */
+.grid_true,
+.grid_false {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-image: url("../img/glyphicons-halflings.png");
+  background-position: 14px 14px;
+  background-repeat: no-repeat;
+  *margin-right: .3em;
+}
+.icon-publish,
+.icon-save,
+.icon-apply,
+.grid_true {
+  background-position: -288px 0;
+}
+.icon-new,
+.icon-save-new {
+  background-position: -408px -96px;
+}
+.icon-unpublish,
+.grid_false {
+  background-position: -216px -96px;
+}
+.icon-default,
+.icon-featured {
+  background-position: -120px 0;
+}
+.icon-notdefault {
+  background-position: -144px 0;
+}
+.icon-delete,
+.icon-cancel {
+  background-position: -312px 0;
+}
+.icon-copy,
+.icon-save-copy {
+  background-position: 0 -96px;
+}
+.icon-archive {
+  background-position: -168px -24px;
+}
+.icon-checkin {
+  background-position: -287px -24px;
+}
+.icon-purge {
+  background-position: -456px 0;
+}
+.icon-article {
+  background-position: -24px -24px;
+}
+.icon-image {
+  background-position: -456px -48px;
+}
+.icon-pagebreak {
+  background-position: -432px -119px;
+}
+.icon-unblock {
+  background-position: -192px -96px;
+}
+.icon-uparrow {
+  background-position: -289px -96px;
+}
+.icon-downarrow {
+  background-position: -312px -96px;
+}

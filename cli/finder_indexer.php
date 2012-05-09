@@ -18,7 +18,6 @@ if (array_key_exists('REQUEST_METHOD', $_SERVER)) die();
 
 // We are a valid entry point.
 define('_JEXEC', 1);
-define('DS', DIRECTORY_SEPARATOR);
 
 // Load system defines
 if (file_exists(dirname(dirname(__FILE__)) . '/defines.php'))
@@ -33,7 +32,7 @@ if (!defined('_JDEFINES'))
 }
 
 // Get the framework.
-require_once JPATH_LIBRARIES . '/import.php';
+require_once JPATH_LIBRARIES . '/import.legacy.php';
 
 // Bootstrap the CMS libraries.
 require_once JPATH_LIBRARIES . '/cms.php';
@@ -42,10 +41,8 @@ require_once JPATH_LIBRARIES . '/cms.php';
 JError::$legacy = true;
 
 // Import necessary classes not handled by the autoloaders
-jimport('joomla.application.menu');
 jimport('joomla.environment.uri');
 jimport('joomla.event.dispatcher');
-jimport('joomla.utilities.utility');
 jimport('joomla.utilities.arrayhelper');
 
 // Import the configuration.

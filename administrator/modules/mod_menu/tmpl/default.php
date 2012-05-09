@@ -8,10 +8,9 @@
 // No direct access.
 defined('_JEXEC') or die;
 
-// Note. It is important to remove spaces between elements.
 ?>
 
-<ul id="menu">
+<ul id="menu" class="nav<?php if ($disabled) echo ' disabled'; ?>">
 <?php
 foreach ($list as $i => &$item) :
 	$class = array();
@@ -19,8 +18,8 @@ foreach ($list as $i => &$item) :
 		$class[] = 'current';
 	}
 
-	if ($item->parent || $item->type == 'menus') {
-		$class[] = 'node';
+	if (($item->parent || $item->type == 'menus') && $item->level == 1 && !$disabled) {
+		$class[] = 'dropdown';
 	}
     
     if ($disabled) {
@@ -37,6 +36,10 @@ foreach ($list as $i => &$item) :
     if ($disabled) {
         require JModuleHelper::getLayoutPath('mod_menu', 'default_disabled');
     }
+	elseif ($item->level == 1)
+	{
+		require JModuleHelper::getLayoutPath('mod_menu', 'default_toggle');
+	}
     else 
     {
         switch ($item->type) :
@@ -56,7 +59,7 @@ foreach ($list as $i => &$item) :
 
 	// The next item is deeper.
 	if ($item->deeper) {
-		echo '<ul>';
+		echo '<ul class="dropdown-menu">';
 	}
 	// The next item is shallower.
 	elseif ($item->shallower) {

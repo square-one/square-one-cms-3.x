@@ -23,40 +23,45 @@ $ordering 	= ($listOrder == 'a.lft');
 $saveOrder 	= ($listOrder == 'a.lft' && $listDirn == 'asc');
 ?>
 <form action="<?php echo JRoute::_('index.php?option=com_categories&view=categories');?>" method="post" name="adminForm" id="adminForm">
-
-	<fieldset id="filter-bar">
-		<div class="filter-search fltlft">
-			<label class="filter-search-lbl" for="filter_search"><?php echo JText::_('JSEARCH_FILTER_LABEL'); ?></label>
-			<input type="text" name="filter_search" id="filter_search" value="<?php echo $this->escape($this->state->get('filter.search')); ?>" title="<?php echo JText::_('COM_CATEGORIES_ITEMS_SEARCH_FILTER'); ?>" />
-			<button type="submit"><?php echo JText::_('JSEARCH_FILTER_SUBMIT'); ?></button>
-			<button type="button" onclick="document.id('filter_search').value='';this.form.submit();"><?php echo JText::_('JSEARCH_FILTER_CLEAR'); ?></button>
+	<div id="filter-bar" class="btn-toolbar">
+		<div class="btn-group pull-right">
+			<a data-toggle="collapse" data-target="#filters" class="btn"><?php echo JText::_('JSEARCH_FILTER_LABEL'); ?> <span class="caret"></span></a>
 		</div>
-
-		<div class="filter-select fltrt">
-			<select name="filter_level" class="inputbox" onchange="this.form.submit()">
-				<option value=""><?php echo JText::_('JOPTION_SELECT_MAX_LEVELS');?></option>
-				<?php echo JHtml::_('select.options', $this->f_levels, 'value', 'text', $this->state->get('filter.level'));?>
-			</select>
-
-			<select name="filter_published" class="inputbox" onchange="this.form.submit()">
-				<option value=""><?php echo JText::_('JOPTION_SELECT_PUBLISHED');?></option>
-				<?php echo JHtml::_('select.options', JHtml::_('jgrid.publishedOptions'), 'value', 'text', $this->state->get('filter.published'), true);?>
-			</select>
-
-            <select name="filter_access" class="inputbox" onchange="this.form.submit()">
-				<option value=""><?php echo JText::_('JOPTION_SELECT_ACCESS');?></option>
-				<?php echo JHtml::_('select.options', JHtml::_('access.assetgroups'), 'value', 'text', $this->state->get('filter.access'));?>
-			</select>
-
-			<select name="filter_language" class="inputbox" onchange="this.form.submit()">
-				<option value=""><?php echo JText::_('JOPTION_SELECT_LANGUAGE');?></option>
-				<?php echo JHtml::_('select.options', JHtml::_('contentlanguage.existing', true, true), 'value', 'text', $this->state->get('filter.language'));?>
-			</select>
+		<div class="filter-search btn-group pull-left">
+			<input type="text" name="filter_search" id="filter_search" placeholder="<?php echo JText::_('COM_CATEGORIES_ITEMS_SEARCH_FILTER'); ?>" value="<?php echo $this->escape($this->state->get('filter.search')); ?>" title="<?php echo JText::_('COM_CATEGORIES_ITEMS_SEARCH_FILTER'); ?>" />
 		</div>
-	</fieldset>
-	<div class="clr"> </div>
+		<div class="btn-group">
+			<button class="btn tip" type="submit" title="<?php echo JText::_('JSEARCH_FILTER_SUBMIT'); ?>"><i class="icon-search"></i></button>
+			<button class="btn tip" type="button" onclick="document.id('filter_search').value='';this.form.submit();" title="<?php echo JText::_('JSEARCH_FILTER_CLEAR'); ?>"><i class="icon-remove"></i></button>
+		</div>
+		<div class="clearfix"> </div>
+		<div class="collapse" id="filters">
+			<div class="filter-select well">
+				<select name="filter_level" class="inputbox" onchange="this.form.submit()">
+					<option value=""><?php echo JText::_('JOPTION_SELECT_MAX_LEVELS');?></option>
+					<?php echo JHtml::_('select.options', $this->f_levels, 'value', 'text', $this->state->get('filter.level'));?>
+				</select>
+	
+				<select name="filter_published" class="inputbox" onchange="this.form.submit()">
+					<option value=""><?php echo JText::_('JOPTION_SELECT_PUBLISHED');?></option>
+					<?php echo JHtml::_('select.options', JHtml::_('jgrid.publishedOptions'), 'value', 'text', $this->state->get('filter.published'), true);?>
+				</select>
+	
+	            <select name="filter_access" class="inputbox" onchange="this.form.submit()">
+					<option value=""><?php echo JText::_('JOPTION_SELECT_ACCESS');?></option>
+					<?php echo JHtml::_('select.options', JHtml::_('access.assetgroups'), 'value', 'text', $this->state->get('filter.access'));?>
+				</select>
+	
+				<select name="filter_language" class="inputbox" onchange="this.form.submit()">
+					<option value=""><?php echo JText::_('JOPTION_SELECT_LANGUAGE');?></option>
+					<?php echo JHtml::_('select.options', JHtml::_('contentlanguage.existing', true, true), 'value', 'text', $this->state->get('filter.language'));?>
+				</select>
+			</div>
+		</div>
+	</div>
+	<div class="clear"> </div>
 
-	<table class="adminlist">
+	<table class="table table-striped">
 		<thead>
 			<tr>
 				<th width="1%">
@@ -135,7 +140,7 @@ $saveOrder 	= ($listOrder == 'a.lft' && $listDirn == 'asc');
 								<span><?php echo $this->pagination->orderDownIcon($i, $this->pagination->total, isset($this->ordering[$item->parent_id][$orderkey + 1]), 'categories.orderdown', 'JLIB_HTML_MOVE_DOWN', $ordering); ?></span>
 							<?php endif; ?>
 							<?php $disabled = $saveOrder ?  '' : 'disabled="disabled"'; ?>
-							<input type="text" name="order[]" size="5" value="<?php echo $orderkey + 1;?>" <?php echo $disabled ?> class="text-area-order" />
+							<input type="text" class="span1" name="order[]" size="5" value="<?php echo $orderkey + 1;?>" <?php echo $disabled ?> class="text-area-order" />
 							<?php $originalOrders[] = $orderkey + 1; ?>
 						<?php else : ?>
 							<?php echo $orderkey + 1;?>

@@ -8,7 +8,7 @@
 
 defined('_JEXEC') or die;
 ?>
-	<table class="adminlist">
+	<table class="table table-striped">
 		<thead>
 		<tr>
 			<th class="left">
@@ -31,16 +31,26 @@ defined('_JEXEC') or die;
 				<td class="center">
 					<?php if (is_null($module->menuid)) : ?>
 						<?php if ($module->except):?>
-							<?php echo JText::_('JYES'); ?>
+							<span class="label label-success">
+								<?php echo JText::_('JYES'); ?>
+							</span>
 						<?php else : ?>
-							<?php echo JText::_('JNO'); ?>
+							<span class="label label-important">
+								<?php echo JText::_('JNO'); ?>
+							</span>
 						<?php endif;?>
 					<?php elseif ($module->menuid > 0) : ?>
-						<?php echo JText::_('JYES'); ?>
+						<span class="label label-success">
+							<?php echo JText::_('JYES'); ?>
+						</span>
 					<?php elseif ($module->menuid < 0) : ?>
-						<?php echo JText::_('JNO'); ?>
+						<span class="label label-important">
+							<?php echo JText::_('JNO'); ?>
+						</span>
 					<?php else : ?>
-						<?php echo JText::_('JALL'); ?>
+						<span class="label label-info">
+							<?php echo JText::_('JALL'); ?>
+						</span>
 					<?php endif; ?>
 				</td>
 			</tr>
